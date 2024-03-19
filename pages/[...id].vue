@@ -4,8 +4,6 @@ const config = useRuntimeConfig();
 const redirectUrl = config?.public.redirectUrl;
 const route = useRoute();
 
-onMounted(() => {
-    const fullPath = redirectUrl + route.fullPath;
-    window.location.href = fullPath;
-});
+const fullPath = redirectUrl + route.fullPath;
+navigateTo(fullPath, { external: true, redirectCode: 301 });
 </script>
